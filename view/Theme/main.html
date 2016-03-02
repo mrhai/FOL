@@ -1,0 +1,32 @@
+<div class="row">
+   <div class="col-lg-3 col-md-3 col-sm-3 mb" ng-repeat="x in filmbinding">
+      <!-- WHITE PANEL - TOP USER -->
+      <div class="white-panel pn">
+         <div class="white-header">
+            <h5>{{x.name}}</h5>
+         </div>
+         <p><img src="{{x.image}}" class="img-circle"></p>
+         <div class="details pn">
+            <div class="white-header">
+				<div class="view">
+					<a class="button" href="#view/1/{{x.link}}">Xem ngay</a>
+				</div>
+            </div>
+            <div class="detail">
+               <p class="title">Thời lượng: {{x.times}} phút</p>
+			   <p class="des">{{x.description}}</p> 
+            </div>
+            
+         </div>
+      </div>
+   </div>
+   <!-- end -->
+
+</div>
+
+<hr>
+	<div>
+		<ul class="pagination">
+			<li ng-repeat="x in pagging"><a href="{{pagging_link+($index + 1)}}">{{$index + 1}}</a></li>
+		</ul>
+	</div>

@@ -1,0 +1,73 @@
+<div class="add_film">
+            <div class="row">
+			<form ng-submit="save()">
+                <h2>New/Edit Film</h2>
+				<hr>
+				<input type="hidden" name="id" ng-model="add.id"/>
+				<input type="hidden" name="type" ng-model="add.insert"/>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td class="text-align-right width-100">Name</td>
+                            <td><input name="name" class="form-control" ng-model="add.name"/></td>
+                        </tr>
+						 <tr>
+                            <td class="text-align-right width-100">Description</td>
+                            <td><input name="description" class="form-control" ng-model="add.description"/></td>
+                        </tr>
+						 <tr>
+                            <td class="text-align-right width-100">image</td>
+                            <td><input name="image" class="form-control" ng-model="add.image"/></td>
+                        </tr>
+						 <tr>
+                            <td class="text-align-right width-100">Times</td>
+                            <td><input name="times" class="form-control" ng-model="add.times"/></td>
+                        </tr>
+						<tr>
+                            <td class="text-align-right width-100">Server Type</td>
+                            <td><select class="form-control" ng-model="add.serverType">
+								<option value="1">
+									Picasa
+								</option>
+							</select></td>
+                        </tr>
+						<tr>
+                            <td class="text-align-right width-100">Server</td>
+                            <td><textarea class="form-control textarea-disable-resize-vertical" rows="5"  ng-model="add.server"></textarea></td>
+                        </tr>
+						<tr>
+                            <td class="text-align-right width-100">Type</td>
+                            <td> <select class="form-control" ng-model="add.type">
+								<option ng-repeat="x in typeValue" value="{{x.id}}">
+								{{x.catalog_name}}
+								</option>
+							</select></td>
+                        </tr>
+						<tr>
+                            <td class="text-align-right width-100">Country</td>
+                            <td><select class="form-control" ng-model="add.country">
+								<option ng-repeat="x in countryValue" value="{{x.id}}">
+									{{x.catalog_name}}
+								</option>
+							</select></td>
+                        </tr>
+						<tr>
+                            <td class="text-align-right width-100">Catalog</td>
+                            <td><select class="form-control" ng-model="add.catalog">
+								<option ng-repeat="x in catalogValue" value="{{x.id}}">
+									{{x.catalog_name}}
+								</option>
+							</select></td>
+                        </tr>
+						
+						<tr>
+                            <td colspan="2" class="text-align-center">
+							<input type="submit" value="save" class="btn btn-success width-100"/>
+							<input type="reset" value="Clear" class="btn btn-default width-100" ng-click="reset()"/>
+							</td>
+                        </tr>
+                    </tbody>
+                </table>
+			</form>
+            </div>
+</div>

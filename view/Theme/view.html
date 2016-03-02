@@ -1,0 +1,53 @@
+<div class="row">
+<div class="col-lg-9 main-chart">
+   <h3><i class="fa fa-angle-right"></i> {{film_detail.name}} <i class="fa fa-angle-right"></i> Tập {{server.part}}</h3>
+   <hr>
+   <div id="video-view" class="video-view">
+   </div>
+
+   <hr>
+   <div class="video-part">
+		<input type="hidden" id="videoPart" value="{{server.part}}"/>
+		<p>Tập: 
+		        <ul class="server">
+				  <li ng-repeat="x in pagging" id="{{x.part}}"><a href="#view/1/{{film_detail.link}}">{{x.part}}</a></li>
+				</ul>  
+		</p>
+		<script type="text/javascript-lazy">
+			setTimeout(function(){
+				var current_part = $(".video-part #videoPart").val();
+				var li = ".video-part #"+current_part;
+				var li_active = $(li).addClass("active");
+			},500);
+			
+		</script>
+		
+   </div>
+   <div id="fb-comment-box" dyn-fb-comment-box
+        page-href="http://127.0.0.1:8887/index.html#/view/:id"
+        numposts="5"
+        colorscheme="light" 
+		widths="100%">
+</div>
+   <!-- /row -->	
+</div>
+<!-- /col-lg-9 END SECTION MIDDLE -->
+<!-- **********************************************************************************************************************************************************
+   RIGHT SIDEBAR CONTENT
+   *********************************************************************************************************************************************************** -->                  
+<div class="col-lg-3 ds">
+   <h3>PHIM XEM NHIỀU</h3>
+   <!-- First Member -->
+   <div class="desc" ng-repeat="x in top_fim">
+      <div class="thumb">
+         <img class="img-circle" src="{{x.image}}" width="35px" height="35px" align="">
+      </div>
+      <div class="details">
+         <p class="title">
+            <a href="#view/1/{{x.link}}">{{x.name}}</a><br/>
+            <muted class="fa fa-caret-square-o-right"></muted>
+         </p>
+      </div>
+   </div>
+</div>
+<!-- /col-lg-3 -->
