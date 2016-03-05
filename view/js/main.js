@@ -1,5 +1,5 @@
 //api get film
-var root_apt = "http://localhost:8080";
+var root_apt = "http://localhost:8080/FOL/trunk";
 var apiGetListFilm = root_apt+"/php/getfilm.php";
 var apt_add_update_film = root_apt+"/api/add_film_api.php?data=";
 var api_get_all_catalog = root_apt+"/api/get_all_catalog.php?type=";

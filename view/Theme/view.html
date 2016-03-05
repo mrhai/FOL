@@ -10,7 +10,7 @@
 		<input type="hidden" id="videoPart" value="{{server.part}}"/>
 		<p>Tập: 
 		        <ul class="server">
-				  <li ng-repeat="x in pagging" id="{{x.part}}"><a href="#view/1/{{film_detail.link}}">{{x.part}}</a></li>
+				  <li ng-repeat="x in pagging" id="{{x.part}}"><a href="#view/{{x.part}}/{{film_detail.link}}">{{x.part}}</a></li>
 				</ul>  
 		</p>
 		<script type="text/javascript-lazy">

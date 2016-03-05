@@ -2,7 +2,25 @@
 try {
 
 	include_once 'db.php';
+	if(isset($_GET["type"])){
+		$type = $_GET["type"];
+		
+		switch($type){
+			case 1:
+				$result = $conn->query("select id,catalog_name from sub_catalog where catalog_id = 1");
+				break;
+			case 2:
+				$result = $conn->query("select id,catalog_name from sub_catalog where catalog_id = 2");
+				break;
+			case 3:
+				$result = $conn->query("select id,catalog_name from catalog where id in (3,4)");
+				break;
+		}
+		
+		echo json_encode(mysqli_fetch_all($result,MYSQLI_ASSOC));
+	}
 	
+	if(false){
 	$result = $conn->query("select id,catalog_name from catalog");
 	
 	$result_array = array();
@@ -19,6 +37,7 @@ try {
 	}
 
 	echo json_encode($result_array);
+	}
 	
 }
 catch(Exception $e)
