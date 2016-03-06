@@ -10,8 +10,11 @@ var api_get_film_server_count = root_apt+"/api/get_film_pagging.php?id=";
 var api_get_film_detail = root_apt+"/api/get_film_details.php?id=";
 var apt_get_all_catalog = root_apt+"/api/get_all_catalog.php";
 var api_get_top_film = root_apt+"/api/get_top_film.php";
+var api_add_film_view = root_apt+"/api/add_view.php?id=";
 var app = angular.module('app', ['ngRoute']);
 var current_link = "";
+var current_main_page = 1;
+var page_title = "Film";
 var root_scope;
 app.config(
   function($routeProvider,$httpProvider) {
@@ -57,16 +60,18 @@ app.run(function($rootScope,$http) {
 		
 	});
 	
-	$rootScope.root_page_title = "FILM";
+	$rootScope.root_page_title = page_title;
 	root_scope = $rootScope;
 });
 //controller
 app.controller('mainController', function($scope,$http,$routeParams) {
    loading();
+   root_scope.root_page_title = page_title;
    var page = 1;
    if($routeParams.page != "" && $routeParams.page != undefined ){
 	   page = $routeParams.page;
    }
+	current_main_page = page;
    var api = api_get_list_film.replace("%type"," ").replace("%page",page);
 	$http.get(api).then(function(response) {//type
 		$scope.filmbinding = response.data.film;
@@ -76,6 +81,7 @@ app.controller('mainController', function($scope,$http,$routeParams) {
 		}
 		$scope.pagging = range;
 		$scope.pagging_link = "#main/";
+
 		hide_loading();
 	});
 	
@@ -87,6 +93,12 @@ app.controller('viewController', function($scope,$http,$routeParams) {
 	id = id[0];
 	
 	var api = api_get_film_server.replace("%id",id).replace("%part",$routeParams.part);
+	
+	if(id == 1){
+		$http.get(api_add_film_view+id).then(function(response) {//type
+		
+		});
+	}
 	
 	$http.get(api).then(function(response) {//type
 		var server = response.data;
@@ -114,6 +126,7 @@ app.controller('viewController', function($scope,$http,$routeParams) {
 });
 app.controller('filterController', function($scope,$routeParams,$http) {
 	loading();
+	current_main_page = $routeParams.page;
 	var api = api_get_list_film.replace("%type",$routeParams.type).replace("%page",$routeParams.page).replace("%id",$routeParams.filter);
 	$http.get(api).then(function(response) {//type
 		$scope.filmbinding = response.data.film;

@@ -12,19 +12,19 @@ if(isset($_GET["type"]) && isset($_GET["page"])){
 	switch($type){
 		
 		case " ":
-			$result = $conn->query("select * from film limit $start,$pagging");
+			$result = $conn->query("select * from film order by id desc limit $start,$pagging");
 			$result_page = $conn->query("select count(*) as count from film");
 			break;
 		case "TL":
-			$result = $conn->query("select * from film where type = $id limit $start,$pagging");
+			$result = $conn->query("select * from film where type = $id order by id desc limit $start,$pagging");
 			$result_page = $conn->query("select count(*) as count from film where type = $id");
 			break;
 		case "QG":
-			$result = $conn->query("select * from film where country = $id limit $start,$pagging");
+			$result = $conn->query("select * from film where country = $id order by id desc limit $start,$pagging");
 			$result_page = $conn->query("select count(*) as count from film where country = $id");
 			break;
 		case "ONLY":
-			$result = $conn->query("select * from film where catalog = $id limit $start,$pagging");
+			$result = $conn->query("select * from film where catalog = $id order by id desc limit $start,$pagging");
 			$result_page = $conn->query("select count(*) as count from film where catalog = $id");
 			break;
 	}

@@ -27,6 +27,14 @@
 <hr>
 	<div>
 		<ul class="pagination">
-			<li ng-repeat="x in pagging"><a href="{{pagging_link+($index + 1)}}">{{$index + 1}}</a></li>
+			<li ng-repeat="x in pagging" id="{{$index + 1}}"><a href="{{pagging_link+($index + 1)}}">{{$index + 1}}</a></li>
 		</ul>
+		<script type="text/javascript-lazy">
+		setTimeout(function(){
+		debugger;
+			var currentPageID = ".pagination #"+current_main_page;
+			$(".pagination li").removeClass("active");
+			$(currentPageID).addClass("active");
+			},300);
+		</script>
 	</div>

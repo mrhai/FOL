@@ -1129,6 +1129,7 @@ PANELS CONFIGURATIONS
     text-overflow: ellipsis;
 	color:white;
 	font-weight:bold;
+	font-size:15px;
 }
 
 .white-panel > .details{
