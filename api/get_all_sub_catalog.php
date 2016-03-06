@@ -2,6 +2,7 @@
 try {
 	$sql = "select id, catalog_name from sub_catalog";
 	include_once 'db.php';
+		include_once 'authentication.php';
 	
 		$result = $conn->query($sql);
 		

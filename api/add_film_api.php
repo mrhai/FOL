@@ -6,6 +6,7 @@ try {
 	$cons_server_hr = " \n";
 	include_once 'db.php';
 	include_once 'get_link_picasa.php';
+		include_once 'authentication.php';
 	header('Content-Type: text/html; charset="UTF-8"');
 	
 	if(isset($_GET["data"])){

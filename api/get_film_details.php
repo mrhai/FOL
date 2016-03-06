@@ -1,6 +1,6 @@
 <?php
 include_once 'db.php';
-
+	include_once 'authentication.php';
 if(isset($_GET["id"])){
 	$filmId = $_GET["id"];
 	

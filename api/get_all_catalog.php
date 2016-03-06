@@ -2,6 +2,8 @@
 try {
 
 	include_once 'db.php';
+	include_once 'authentication.php';
+		include_once 'authentication.php';
 	if(isset($_GET["type"])){
 		$type = $_GET["type"];
 		

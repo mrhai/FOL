@@ -1,6 +1,6 @@
 <?php
 include_once 'db.php';
-
+	include_once 'authentication.php';
 if(isset($_GET["id"]) && isset($_GET["part"])){
 	$filmId = $_GET["id"];
 	$part = $_GET["part"];

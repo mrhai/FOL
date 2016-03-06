@@ -13,14 +13,6 @@
 				  <li ng-repeat="x in pagging" id="{{x.part}}"><a href="#view/{{x.part}}/{{film_detail.link}}">{{x.part}}</a></li>
 				</ul>  
 		</p>
-		<script type="text/javascript-lazy">
-			setTimeout(function(){
-				var current_part = $(".video-part #videoPart").val();
-				var li = ".video-part #"+current_part;
-				var li_active = $(li).addClass("active");
-			},500);
-			
-		</script>
 		
    </div>
    <div id="fb-comment-box" dyn-fb-comment-box

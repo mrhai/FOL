@@ -1,6 +1,7 @@
 <?php
 $pagging = 20;
 include_once 'db.php';
+	include_once 'authentication.php';
 $page_max = 20;
 
 if(isset($_GET["type"]) && isset($_GET["page"])){
